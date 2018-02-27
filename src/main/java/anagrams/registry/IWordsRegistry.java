@@ -7,9 +7,9 @@ public interface IWordsRegistry {
 
 	public Set<String> getEntriesForKey(EntryKey key);
 
-	public void createNewEntry(EntryKey key, Set<String> entry);
+	public void createNewEntry(EntryKey key, String word);
 
-	public void addNewElement(EntryKey key, String value);
+	public void addWordToEntry(EntryKey key, String word);
 
 	public void removeEntry(EntryKey key);
 

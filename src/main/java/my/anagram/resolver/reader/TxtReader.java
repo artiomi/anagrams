@@ -1,4 +1,4 @@
-package anagrams.reader;
+package my.anagram.resolver.reader;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,9 +7,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import anagrams.utils.FileUtils;
+import my.anagram.resolver.utils.FileUtils;
 
-public class TxtReader implements ReadableSource {
+/**
+ * Read words from provided .txt file
+ */
+public class TxtReader implements IWordsReader {
 
 	private static final String MSG_NULL_READER = "Reader not instantiated.";
 	private String pathToFile;

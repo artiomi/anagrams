@@ -1,4 +1,4 @@
-package anagrams.registry;
+package my.anagram.resolver.registry;
 
 import java.util.Arrays;
 

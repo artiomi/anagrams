@@ -1,4 +1,4 @@
-package anagrams.algoritm;
+package my.anagram.resolver.processor;
 
 import java.util.List;
 

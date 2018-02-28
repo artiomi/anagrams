@@ -1,4 +1,4 @@
-package anagrams.registry;
+package my.anagram.resolver.registry;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -10,11 +10,10 @@ import java.util.TreeSet;
 public class CollectionRegistry implements IWordsRegistry {
 	private final Map<EntryKey, Set<String>> elementsRegistry = new HashMap<>();
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Set<String> getEntriesForKey(EntryKey key) {
 		if (!elementsRegistry.containsKey(key)) {
-			return Collections.EMPTY_SET;
+			return Collections.emptySet();
 		} else {
 			return new TreeSet<String>(elementsRegistry.get(key));
 		}
@@ -49,6 +48,11 @@ public class CollectionRegistry implements IWordsRegistry {
 	@Override
 	public void removeEntry(EntryKey key) {
 		elementsRegistry.remove(key);
+	}
+
+	@Override
+	public int countEntries() {
+		return elementsRegistry.keySet().size();
 	}
 
 }

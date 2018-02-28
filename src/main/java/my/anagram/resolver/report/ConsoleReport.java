@@ -1,18 +1,24 @@
-package anagrams.report;
+package my.anagram.resolver.report;
 
 import java.util.Set;
 
-import anagrams.registry.EntryKey;
-import anagrams.registry.IWordsRegistry;
+import my.anagram.resolver.registry.EntryKey;
+import my.anagram.resolver.registry.IWordsRegistry;
 
-public class ConsoleReport implements IProcessReport {
+/**
+ * 
+ * Display execution report as console output, using IWordsRegistry entries
+ *
+ */
+public class ConsoleReport implements IExecutionReport {
 	private IWordsRegistry registry;
 
 	public ConsoleReport(IWordsRegistry registry) {
 		this.registry = registry;
 	}
 
-	public void prepareReport() {
+	@Override
+	public void presentReport() {
 		System.out.println("=========Result==========");
 		Set<EntryKey> keys = registry.getAllKeys();
 		for (EntryKey key : keys) {

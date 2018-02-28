@@ -1,9 +1,9 @@
-package anagrams.algoritm;
+package my.anagram.resolver.processor;
 
 import java.util.List;
 
-import anagrams.registry.EntryKey;
-import anagrams.registry.IWordsRegistry;
+import my.anagram.resolver.registry.EntryKey;
+import my.anagram.resolver.registry.IWordsRegistry;
 
 public class AnagramsProcessor implements IWordsProcessor {
 

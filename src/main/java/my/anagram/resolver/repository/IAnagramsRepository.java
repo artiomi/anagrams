@@ -3,6 +3,8 @@ package my.anagram.resolver.repository;
 import java.util.Collections;
 import java.util.Set;
 
+import my.anagram.resolver.service.EntryKey;
+
 /**
  * Interface responsible for storing and manipulation with entries
  */
@@ -11,7 +13,7 @@ public interface IAnagramsRepository {
 	 * Check if in repository exists entry for provided key
 	 * 
 	 * @param key
-	 * @return
+	 * @return boolean if entry with such key exists in repository
 	 */
 	public boolean conainsKey(EntryKey key);
 
@@ -20,7 +22,7 @@ public interface IAnagramsRepository {
 	 * Collections.emptySet() if no entry found
 	 * 
 	 * @param key
-	 * @return
+	 * @return Set of words registered for specified key
 	 */
 	public Set<String> getEntriesForKey(EntryKey key);
 
@@ -45,6 +47,7 @@ public interface IAnagramsRepository {
 	 * Remove from repository entry mapped to provided key
 	 * 
 	 * @param key
+	 * 
 	 */
 	public void removeEntry(EntryKey key);
 
@@ -54,19 +57,25 @@ public interface IAnagramsRepository {
 	public int entriesCount();
 
 	/**
-	 * Get set of all EntryKeys from repository. If repository contains too many keys
-	 * use method:getNextBatchOfKeys
+	 * Get set of all EntryKeys from repository. If repository contains too many
+	 * keys use method:getNextBatchOfKeys
 	 * 
-	 * @return
+	 * @return Set of all EntryKey from repository
 	 */
 	public Set<EntryKey> getAllKeys();
 
 	/**
-	 * Return a batch of keys of size=batchSize. Throws exception if
-	 * batchSize<1.Should return Collections.emptySet() if entry is empty
+	 * Use this method in case of large amount of elemets in repository
 	 * 
-	 * @param batchSize
+	 * @param Set
+	 *            of EntryKey from repository which starts at startIndex and have
+	 *            defined batchSize
 	 * @return
 	 */
-	public  Set<EntryKey> getNextBatchOfKeys(int batchSize) ;
+	default Set<EntryKey> getNextBatchOfKeys(int startIndex, int batchSize) {
+		if (batchSize < 1) {
+			throw new IllegalArgumentException("Provided batch is less then 1");
+		}
+		return Collections.emptySet();
+	}
 }

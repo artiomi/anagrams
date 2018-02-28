@@ -2,8 +2,8 @@ package my.anagram.resolver.report;
 
 import java.util.Set;
 
-import my.anagram.resolver.repository.EntryKey;
 import my.anagram.resolver.repository.IAnagramsRepository;
+import my.anagram.resolver.service.EntryKey;
 
 /**
  * 
@@ -18,7 +18,7 @@ public class ConsoleReport implements IReportProvider {
 	}
 
 	@Override
-	public void presentReport() {
+	public void prepareReport() {
 		System.out.println("=========Result==========");
 		Set<EntryKey> keys = repository.getAllKeys();
 		for (EntryKey key : keys) {

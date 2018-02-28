@@ -1,6 +1,5 @@
 package my.anagram.resolver.reader;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -35,7 +34,7 @@ public interface ISourceReader {
 	 * 
 	 * @param batchSize
 	 * @return list of elements delimited by passed batch
-	 * @throws IOException
+	 * @throws Exception
 	 */
 	public List<String> readNextBatch(int batchSize) throws Exception;
 

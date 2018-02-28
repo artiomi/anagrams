@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import my.anagram.resolver.service.EntryKey;
+
 public class CollectionRepository implements IAnagramsRepository {
 	private final Map<EntryKey, Set<String>> elementsRepository = new LinkedHashMap<>();
 
@@ -35,6 +37,7 @@ public class CollectionRepository implements IAnagramsRepository {
 
 	@Override
 	public void createNewEntry(EntryKey key, String word) {
+		System.out.println(String.format("Create new entry for key: %s and word: [%s]", key, word));
 		Set<String> entry = new TreeSet<>();
 		entry.add(word);
 		elementsRepository.put(key, entry);
@@ -42,25 +45,19 @@ public class CollectionRepository implements IAnagramsRepository {
 
 	@Override
 	public void addWordToEntry(EntryKey key, String value) {
+		System.out.println(String.format("Add new word [%s] to entry with key: %s ", value, key));
 		elementsRepository.get(key).add(value);
 	}
 
 	@Override
 	public void removeEntry(EntryKey key) {
+		System.out.println(String.format("Remove entry specified for key: %s ", key));
 		elementsRepository.remove(key);
 	}
 
 	@Override
 	public int entriesCount() {
 		return elementsRepository.keySet().size();
-	}
-
-	@Override
-	public Set<EntryKey> getNextBatchOfKeys(int batchSize) {
-		if (batchSize < 1) {
-			throw new IllegalArgumentException("Provided batch is less then 1");
-		}
-		return Collections.emptySet();
 	}
 
 }

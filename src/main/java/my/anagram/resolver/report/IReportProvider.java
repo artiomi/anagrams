@@ -9,5 +9,5 @@ public interface IReportProvider {
 	/**
 	 * This method is responsible for displaying report to final user
 	 */
-	public void presentReport();
+	public void prepareReport();
 }

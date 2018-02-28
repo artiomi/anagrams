@@ -1,0 +1,12 @@
+E:\git\anagrams\src\main\java\my\anagram\resolver\report\ConsoleReport.java
+E:\git\anagrams\src\main\java\my\anagram\resolver\service\AnagramsRegisterService.java
+E:\git\anagrams\src\main\java\my\anagram\resolver\service\IRegistryService.java
+E:\git\anagrams\src\main\java\my\anagram\resolver\repository\IAnagramsRepository.java
+E:\git\anagrams\src\main\java\my\anagram\resolver\report\IReportProvider.java
+E:\git\anagrams\src\main\java\my\anagram\resolver\utils\FileUtils.java
+E:\git\anagrams\src\main\java\my\anagram\resolver\repository\CollectionRepository.java
+E:\git\anagrams\src\main\java\my\anagram\resolver\service\EntryKey.java
+E:\git\anagrams\src\main\java\my\anagram\resolver\dispatcher\AppDispatcher.java
+E:\git\anagrams\src\main\java\my\anagram\resolver\MainAnagramsResolver.java
+E:\git\anagrams\src\main\java\my\anagram\resolver\reader\ISourceReader.java
+E:\git\anagrams\src\main\java\my\anagram\resolver\reader\TxtReader.java

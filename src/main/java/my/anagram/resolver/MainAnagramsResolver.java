@@ -11,18 +11,20 @@ import my.anagram.resolver.service.AnagramsRegisterService;
 import my.anagram.resolver.service.IRegistryService;
 
 public class MainAnagramsResolver {
+	private static final String SRC_FILE = "sample.txt";
+
 	public static void main(String... args) throws Exception {
-		System.out.println("Start");
-		
+		System.out.println("Start.");
+
 		IAnagramsRepository repository = new CollectionRepository();
 		IRegistryService registryService = new AnagramsRegisterService(repository);
 		IReportProvider reporter = new ConsoleReport(repository);
-		ISourceReader readableSource = new TxtReader("sample.txt");
+		ISourceReader readableSource = new TxtReader(SRC_FILE);
 
 		AppDispatcher disaptcher = new AppDispatcher(readableSource, registryService, reporter);
 		disaptcher.processAnagrams();
 		disaptcher.provideExecutionReport();
-		
-		System.out.println("end");
+
+		System.out.println("End.");
 	}
 }

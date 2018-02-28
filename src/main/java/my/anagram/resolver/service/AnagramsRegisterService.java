@@ -2,7 +2,6 @@ package my.anagram.resolver.service;
 
 import java.util.List;
 
-import my.anagram.resolver.repository.EntryKey;
 import my.anagram.resolver.repository.IAnagramsRepository;
 
 public class AnagramsRegisterService implements IRegistryService {

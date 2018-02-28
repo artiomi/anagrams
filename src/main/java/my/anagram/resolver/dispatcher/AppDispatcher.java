@@ -7,7 +7,7 @@ import my.anagram.resolver.report.IReportProvider;
 import my.anagram.resolver.service.IRegistryService;
 
 /**
- * Class which glues all application elements
+ * Glues all application elements
  */
 public class AppDispatcher {
 	private ISourceReader reader;
@@ -36,6 +36,7 @@ public class AppDispatcher {
 	 * @throws Exception
 	 */
 	public void processAnagrams() throws Exception {
+		System.out.println("AppDispatcher.processAnagrams() - Started.");
 		List<String> words = null;
 		try {
 			reader.initReader();
@@ -46,12 +47,17 @@ public class AppDispatcher {
 		} finally {
 			reader.closeReader();
 		}
+		System.out.println("AppDispatcher.processAnagrams() - completed succesfully.");
+
 	}
 
 	/**
 	 * Provide execution report
 	 */
 	public void provideExecutionReport() {
-		reportProvider.presentReport();
+		System.out.println("AppDispatcher.provideExecutionReport() - Started.");
+		reportProvider.prepareReport();
+		System.out.println("AppDispatcher.provideExecutionReport() - completed succesfully.");
+
 	}
 }

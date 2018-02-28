@@ -1,4 +1,4 @@
-package my.anagram.resolver.repository;
+package my.anagram.resolver.service;
 
 import java.util.Arrays;
 
@@ -6,9 +6,10 @@ import java.util.Arrays;
  * Represents key logic
  */
 public class EntryKey {
+
 	private char[] keyValue;
 
-	public EntryKey(String word) {
+	EntryKey(String word) {
 		char[] wordAsArray = word.toCharArray();
 		Arrays.parallelSort(wordAsArray);
 		this.keyValue = wordAsArray;
@@ -40,4 +41,8 @@ public class EntryKey {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "EntryKey [keyValue=" + Arrays.toString(keyValue) + "]";
+	}
 }

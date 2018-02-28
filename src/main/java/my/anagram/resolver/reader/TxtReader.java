@@ -28,6 +28,8 @@ public class TxtReader implements ISourceReader {
 	public void initReader() throws IOException {
 		File sourceFile = FileUtils.getFile(pathToFile);
 		bReader = new BufferedReader(new FileReader(sourceFile));
+		System.out.println("TxtReader.initReader() - Initialized.");
+
 	}
 
 	@Override
@@ -40,6 +42,7 @@ public class TxtReader implements ISourceReader {
 
 	@Override
 	public List<String> readNextBatch(int batchSize) throws IOException {
+		System.out.println("TxtReader.readNextBatch(): read batch with size: " + batchSize);
 		List<String> result = new ArrayList<>();
 		batchSize = batchSize > 0 ? batchSize : DEFAULT_BACH_SIZE;
 		String currentLine;
@@ -64,6 +67,8 @@ public class TxtReader implements ISourceReader {
 		if (bReader != null) {
 			bReader.close();
 		}
+		System.out.println("TxtReader.closeReader() - Closed.");
+
 	}
 
 }

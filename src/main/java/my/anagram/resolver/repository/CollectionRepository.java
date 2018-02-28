@@ -1,14 +1,14 @@
 package my.anagram.resolver.repository;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class CollectionRepository implements IAnagramsRepository {
-	private final Map<EntryKey, Set<String>> elementsRepository = new HashMap<>();
+	private final Map<EntryKey, Set<String>> elementsRepository = new LinkedHashMap<>();
 
 	@Override
 	public Set<String> getEntriesForKey(EntryKey key) {
@@ -53,6 +53,14 @@ public class CollectionRepository implements IAnagramsRepository {
 	@Override
 	public int entriesCount() {
 		return elementsRepository.keySet().size();
+	}
+
+	@Override
+	public Set<EntryKey> getNextBatchOfKeys(int batchSize) {
+		if (batchSize < 1) {
+			throw new IllegalArgumentException("Provided batch is less then 1");
+		}
+		return Collections.emptySet();
 	}
 
 }

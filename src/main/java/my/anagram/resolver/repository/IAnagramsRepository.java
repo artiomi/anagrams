@@ -8,7 +8,7 @@ import java.util.Set;
  */
 public interface IAnagramsRepository {
 	/**
-	 * Check if in registry exists entry for provided key
+	 * Check if in repository exists entry for provided key
 	 * 
 	 * @param key
 	 * @return
@@ -16,7 +16,7 @@ public interface IAnagramsRepository {
 	public boolean conainsKey(EntryKey key);
 
 	/**
-	 * Return registry entries for provided key, should return
+	 * Return repository entries for provided key, should return
 	 * Collections.emptySet() if no entry found
 	 * 
 	 * @param key
@@ -25,7 +25,7 @@ public interface IAnagramsRepository {
 	public Set<String> getEntriesForKey(EntryKey key);
 
 	/**
-	 * Creates new registry entry using provided key and map to it word value
+	 * Creates new repository entry using provided key and map to it word value
 	 * 
 	 * @param key
 	 * @param word
@@ -33,7 +33,7 @@ public interface IAnagramsRepository {
 	public void createNewEntry(EntryKey key, String word);
 
 	/**
-	 * Update existing registry entry by adding new value to entry with specified
+	 * Update existing repository entry by adding new value to entry with specified
 	 * key
 	 * 
 	 * @param key
@@ -42,19 +42,19 @@ public interface IAnagramsRepository {
 	public void addWordToEntry(EntryKey key, String word);
 
 	/**
-	 * Remove from registry entry mapped to provided key
+	 * Remove from repository entry mapped to provided key
 	 * 
 	 * @param key
 	 */
 	public void removeEntry(EntryKey key);
 
 	/**
-	 * @return number of entries in registry
+	 * @return number of entries in repository
 	 */
 	public int entriesCount();
 
 	/**
-	 * Get set of all EntryKeys from registry. If registry contains too many keys
+	 * Get set of all EntryKeys from repository. If repository contains too many keys
 	 * use method:getNextBatchOfKeys
 	 * 
 	 * @return
@@ -68,10 +68,5 @@ public interface IAnagramsRepository {
 	 * @param batchSize
 	 * @return
 	 */
-	default Set<EntryKey> getNextBatchOfKeys(int batchSize) {
-		if (batchSize < 1) {
-			throw new IllegalArgumentException("Provided batch is less then 1");
-		}
-		return Collections.emptySet();
-	};
+	public  Set<EntryKey> getNextBatchOfKeys(int batchSize) ;
 }

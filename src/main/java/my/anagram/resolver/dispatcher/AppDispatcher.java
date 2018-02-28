@@ -2,36 +2,36 @@ package my.anagram.resolver.dispatcher;
 
 import java.util.List;
 
-import my.anagram.resolver.processor.IWordsProcessor;
-import my.anagram.resolver.reader.IWordsReader;
-import my.anagram.resolver.report.IExecutionReport;
+import my.anagram.resolver.reader.ISourceReader;
+import my.anagram.resolver.report.IReportProvider;
+import my.anagram.resolver.service.IRegistryService;
 
 /**
  * Class which glues all application elements
  */
 public class AppDispatcher {
-	private IWordsReader reader;
-	private IWordsProcessor analyzer;
-	private IExecutionReport executionReport;
+	private ISourceReader reader;
+	private IRegistryService registryService;
+	private IReportProvider reportProvider;
 
 	/**
 	 * During initialization provide required components
 	 * 
 	 * @param reader
 	 *            - responsible for source reading
-	 * @param analyzer
+	 * @param registryService
 	 *            - responsible for elements storing
-	 * @param executionReport
+	 * @param reportProvider
 	 *            - responsible for report display
 	 */
-	public AppDispatcher(IWordsReader reader, IWordsProcessor analyzer, IExecutionReport executionReport) {
+	public AppDispatcher(ISourceReader reader, IRegistryService registryService, IReportProvider reportProvider) {
 		this.reader = reader;
-		this.analyzer = analyzer;
-		this.executionReport = executionReport;
+		this.registryService = registryService;
+		this.reportProvider = reportProvider;
 	}
 
 	/**
-	 * Manage to find anagrams in defined source
+	 * Manage to find anagrams in defined source and register them
 	 * 
 	 * @throws Exception
 	 */
@@ -41,7 +41,7 @@ public class AppDispatcher {
 			reader.initReader();
 			while (reader.hasMore()) {
 				words = reader.readNextBatch(2);
-				analyzer.processWords(words);
+				registryService.registerAnagrams(words);
 			}
 		} finally {
 			reader.closeReader();
@@ -52,6 +52,6 @@ public class AppDispatcher {
 	 * Provide execution report
 	 */
 	public void provideExecutionReport() {
-		executionReport.presentReport();
+		reportProvider.presentReport();
 	}
 }

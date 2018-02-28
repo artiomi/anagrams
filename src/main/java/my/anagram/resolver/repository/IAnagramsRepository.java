@@ -1,4 +1,4 @@
-package my.anagram.resolver.registry;
+package my.anagram.resolver.repository;
 
 import java.util.Collections;
 import java.util.Set;
@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Interface responsible for storing and manipulation with entries
  */
-public interface IWordsRegistry {
+public interface IAnagramsRepository {
 	/**
 	 * Check if in registry exists entry for provided key
 	 * 
@@ -51,7 +51,7 @@ public interface IWordsRegistry {
 	/**
 	 * @return number of entries in registry
 	 */
-	public int countEntries();
+	public int entriesCount();
 
 	/**
 	 * Get set of all EntryKeys from registry. If registry contains too many keys

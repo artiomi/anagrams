@@ -1,7 +1,10 @@
-package my.anagram.resolver.registry;
+package my.anagram.resolver.repository;
 
 import java.util.Arrays;
 
+/**
+ * Represents key logic
+ */
 public class EntryKey {
 	private char[] keyValue;
 

@@ -12,7 +12,7 @@ import my.anagram.resolver.utils.FileUtils;
 /**
  * Read words from provided .txt file
  */
-public class TxtReader implements IWordsReader {
+public class TxtReader implements ISourceReader {
 
 	private static final String MSG_NULL_READER = "Reader not instantiated.";
 	private String pathToFile;

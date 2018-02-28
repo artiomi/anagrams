@@ -7,7 +7,7 @@ import java.util.List;
  * Read words from a source
  *
  */
-public interface IWordsReader {
+public interface ISourceReader {
 
 	/**
 	 * Call this methods first, it is used for readers related initialization

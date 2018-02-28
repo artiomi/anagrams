@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import my.anagram.resolver.reader.IWordsReader;
+import my.anagram.resolver.reader.ISourceReader;
 import my.anagram.resolver.reader.TxtReader;
 
 public class TestTextReader {
@@ -14,14 +14,14 @@ public class TestTextReader {
 
 	@Test
 	public void testReadContent() throws IOException {
-		IWordsReader txtReader = new TxtReader(TEST_FILE);
+		ISourceReader txtReader = new TxtReader(TEST_FILE);
 		//List<String> lines = txtReader.readNextBatch(10);
 		//assertFalse(MSG_EMPTY_FILE, lines.isEmpty());
 	}
 
 	@Test(expected = IOException.class)
 	public void testMissingFile() throws IOException {
-		IWordsReader txtReader = new TxtReader(MISSING_FILE);
+		ISourceReader txtReader = new TxtReader(MISSING_FILE);
 		//txtReader.readNextBatch(10);
 
 	}
